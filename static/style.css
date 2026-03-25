@@ -249,7 +249,7 @@ pre{
     max-width: 450px;
     height: 100%;
     max-height: 120px;
-    overflow: auto;
+    overflow-x: auto;
     background: rgba(255, 222, 222, 0.08);
     border: none;
     color: white;
@@ -259,9 +259,10 @@ pre{
     font-family: monospace;
     border-radius: 10px;
     padding: 15px;
-    display: flex;
+    scrollbar-color: rgb(112, 112, 112) transparent;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 @media (max-width:510px){
@@ -270,5 +271,3 @@ pre{
     font-size: 30px;
 }
 }
-
-
