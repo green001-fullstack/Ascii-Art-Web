@@ -150,6 +150,10 @@ body{
     /* margin: 0 auto; */
 }
 
+.center:hover{
+    border: 1px solid #00ffd5;
+}
+
 h2{
     font-size: 40px;
     font-family: monospace;
