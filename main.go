@@ -11,7 +11,7 @@ import (
 )
 
 
-var tmpl = template.Must(template.ParseFiles("templates/index.html"))
+var tmpl = template.Must(template.ParseFiles("templates/index.html", "templates/error.html"))
 
 type PageData struct{
 	Output string
@@ -26,10 +26,12 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	
 
 	if r.URL.Path != "/"{
-		http.Error(w, "Page not found", http.StatusNotFound)
+		w.WriteHeader(http.StatusNotFound)
+		tmpl.ExecuteTemplate(w, "error.html", nil)
+		// http.Error(w, "Page not found", http.StatusNotFound)
 		return
 	}
-	tmpl.Execute(w, data)
+	tmpl.ExecuteTemplate(w, "index.html", data)
 }
 
 func asciiHandler(w http.ResponseWriter, r *http.Request){
