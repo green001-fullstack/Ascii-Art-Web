@@ -14,7 +14,8 @@ import (
 var tmpl = template.Must(template.ParseFiles("templates/index.html", "templates/error.html"))
 
 type PageData struct{
-	Output string
+	Output string;
+	Message string;
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,7 +29,6 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/"{
 		w.WriteHeader(http.StatusNotFound)
 		tmpl.ExecuteTemplate(w, "error.html", nil)
-		// http.Error(w, "Page not found", http.StatusNotFound)
 		return
 	}
 	tmpl.ExecuteTemplate(w, "index.html", data)
@@ -74,10 +74,22 @@ func asciiHandler(w http.ResponseWriter, r *http.Request){
 	tmpl.Execute(w, data)
 }
 
+func downloadHandler( w http.ResponseWriter, r *http.Request){
+	if r.Method != http.MethodPost{
+		http.Error(w, "Only a POST request is allowed here", http.StatusMethodNotAllowed)
+		return
+	}
+
+	ascii := r.FormValue("ascii")
+
+	if strings.TrimSpace(ascii) == ""{}
+}
+
 func main() {
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("static"))))
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/ascii", asciiHandler)
+	http.HandleFunc("/download", downloadHandler)
 
 	log.Println("Server running at http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
