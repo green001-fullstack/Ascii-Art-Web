@@ -82,7 +82,9 @@ func downloadHandler( w http.ResponseWriter, r *http.Request){
 
 	ascii := r.FormValue("ascii")
 
-	if strings.TrimSpace(ascii) == ""{}
+	if strings.TrimSpace(ascii) == ""{
+		
+	}
 }
 
 func main() {
