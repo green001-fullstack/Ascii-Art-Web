@@ -154,7 +154,6 @@ Hello
 * Add text alignment (left, center, right, justify)
 * Add more banner styles
 * Allow file upload input
-* Improve responsiveness for mobile
 * Add copy-to-clipboard feature
 * Add coloring to the art
 
