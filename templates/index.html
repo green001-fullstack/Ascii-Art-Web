@@ -64,9 +64,9 @@
             <pre>{{.Output}}</pre>
         </section>
         <form class="download" method="POST" action="/download">
-            <p>{{.Message}}</p>
+            <p class="message-paragraph">{{.Message}}</p>
             <button class="download-btn" type="submit">Download Art</button>
-            <textArea class="download-output" name="ascii">{{.Output}}</textArea>
+            <textarea class="download-output" name="ascii" hidden>{{.Output}}</textarea>
         </form>
     </div>
 </body>

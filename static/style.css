@@ -270,8 +270,14 @@ pre{
     padding: 15px;
     scrollbar-color: rgb(204, 204, 204) transparent;
 }
+
+.message-paragraph{
+    color: red;
+    /* padding: 10px; */
+    font-size: 25px;
+    font-family: monospace;
+}
 .download{
-    /* padding-top: 20px; */
     width: 100%;
     max-width: 450px;
     height: 100%;
@@ -280,11 +286,12 @@ pre{
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    gap: 10px;
 }
-.download-output{
+/* .download-output{
     visibility: hidden;
     display: none;
-}
+} */
 .download-btn{
     padding: 10px;
 }

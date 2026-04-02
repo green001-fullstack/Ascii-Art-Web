@@ -82,9 +82,14 @@ func downloadHandler( w http.ResponseWriter, r *http.Request){
 
 	ascii := r.FormValue("ascii")
 
-	if strings.TrimSpace(ascii) == ""{
-		
+	if strings.TrimSpace(ascii) == "" {
+		data := PageData{Message:"No Art to Download"}
+		tmpl.ExecuteTemplate(w, "index.html", data)
+		return
 	}
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Content-Disposition", "attachment; filename=ascii-art.txt")
+	w.Write([]byte(ascii))
 }
 
 func main() {
