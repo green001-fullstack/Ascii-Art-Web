@@ -54,7 +54,7 @@ It allows users to enter text, choose a banner style, generate ASCII art, and do
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/ascii-art-web.git
+git clone https://github.com/green001-fullstack/Ascii-Art-Web.git
 cd ascii-art-web
 ```
 
