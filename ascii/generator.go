@@ -43,4 +43,5 @@ func GenerateAscii(text, banner string) string{
 			result = append(result, oneLineString.String())
 		}
 	return strings.Join(result, "\n") + "\n"
+	
 }

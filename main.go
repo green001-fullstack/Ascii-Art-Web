@@ -28,7 +28,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.URL.Path != "/"{
 		w.WriteHeader(http.StatusNotFound)
-		tmpl.ExecuteTemplate(w, "error.html", nil)
+		tmpl.ExecuteTemplate(w, "wrong link", nil)
 		return
 	}
 	tmpl.ExecuteTemplate(w, "index.html", data)
@@ -98,6 +98,6 @@ func main() {
 	http.HandleFunc("/ascii", asciiHandler)
 	http.HandleFunc("/download", downloadHandler)
 
-	log.Println("Server running at http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	log.Println("Server running at http://localhost:8001")
+	http.ListenAndServe(":8001", nil)
 }
